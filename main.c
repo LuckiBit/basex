@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdint.h>
+#include <inttypes.h>
 #include <string.h>
 #include <stdlib.h>
 #include "version.h"
@@ -54,7 +55,7 @@ void printOutput(double decimal, float fValue, double dValue, uint64_t originalH
 
     printf("%-22s: %s\n", "Binary", binary);
     printf("%-22s: %.10lf\n", "Decimal", decimal);
-    printf("%-22s: 0x%llX\n", "Hexadecimal (integer)", originalHex);
+    printf("%-22s: 0x%" PRIx64 "\n", "Hexadecimal (integer)", originalHex);
 
     union { float f; uint32_t i; } uf;
     uf.f = fValue;
@@ -62,7 +63,7 @@ void printOutput(double decimal, float fValue, double dValue, uint64_t originalH
 
     union { double d; uint64_t i; } ud;
     ud.d = dValue;
-    printf("%-22s: %016llX\n", "Hexadecimal (double)", ud.i);
+    printf("%-22s: %016" PRIx64 "\n", "Hexadecimal (double)", ud.i);
 
     set_fg_color(COLOR_YELLOW);
     printf("=====================\n");
@@ -72,9 +73,9 @@ void printOutput(double decimal, float fValue, double dValue, uint64_t originalH
     log_info_file("=== Output Result ===");
     log_info_file("Binary                 : %s", binary);
     log_info_file("Decimal                : %.10lf", decimal);
-    log_info_file("Hexadecimal (integer)  : 0x%llX", originalHex);
+    log_info_file("Hexadecimal (integer)  : 0x%" PRIx64, originalHex);
     log_info_file("Hexadecimal (float)    : %08X", uf.i);
-    log_info_file("Hexadecimal (double)   : %016llX", ud.i);
+    log_info_file("Hexadecimal (double)   : %016" PRIx64, ud.i);
     log_info_file("=====================");
 }
 

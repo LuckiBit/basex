@@ -29,3 +29,8 @@ set(SOURCE_FILES
 
 # -------- Build executable --------
 add_executable(${PROJECT_NAME} ${SOURCE_FILES})
+
+# -------- Link math library on non-Windows platforms --------
+if(NOT WIN32)
+    target_link_libraries(${PROJECT_NAME} m)
+endif()
