@@ -35,6 +35,28 @@ Run the executable and follow the interactive menu:
 ./basex
 ```
 
+### Example
+
+```text
+Select the input data type:
+1. Binary
+2. Decimal
+3. Hexadecimal (as integer)
+4. Hexadecimal (as float)
+5. Hexadecimal (as double)
+0. Exit
+Enter your choice: 2
+Enter a decimal number: 
+> 12
+=== Output Result ===
+Binary                : 00001100
+Decimal               : 12.0000000000
+Hexadecimal (integer) : 0xc
+Hexadecimal (float)   : 41400000
+Hexadecimal (double)  : 4028000000000000
+=====================
+```
+
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
